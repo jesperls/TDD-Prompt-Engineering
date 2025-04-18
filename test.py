@@ -44,7 +44,6 @@ class ItineraryBuilderTest(unittest.TestCase):
             self.assertGreater(concert.date, last_date, "Intinerary is not sorted chronologically.")
             last_date = concert.date
 
-    
     def test_manual_3(self):
         """An artist has at most one concert in the itinerary. If an artist has more than one concert in the list, the itinerary should only include the one with the earliest start date."""
         itinerary = self.builder.build_itinerary(self.all_concerts)

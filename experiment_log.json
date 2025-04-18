@@ -1,0 +1,198 @@
+{
+  "experiment_start": "2025-04-18T16:19:05",
+  "test_runs": [
+    {
+      "timestamp": "2025-04-18T16:31:50.758932",
+      "results": {
+        "total": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "success": true,
+        "details": "test_manual_1 (test.ItineraryBuilderTest)\nSome artists may have no concerts on the list. In that case, that should be indicated in the itinerary. ... ok\ntest_manual_2 (test.ItineraryBuilderTest)\nThe itinerary should return a list of concerts sorted in chronological order (by date from earliest to latest). ... ok\ntest_manual_3 (test.ItineraryBuilderTest)\nAn artist has at most one concert in the itinerary. If an artist has more than one concert in the list, the itinerary should only include the one with the earliest start date. ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n"
+      }
+    },
+    {
+      "timestamp": "2025-04-18T17:21:49.586804",
+      "results": {
+        "total": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "success": true,
+        "details": "test_manual_1 (test.ItineraryBuilderTest)\nSome artists may have no concerts on the list. In that case, that should be indicated in the itinerary. ... ok\ntest_manual_2 (test.ItineraryBuilderTest)\nThe itinerary should return a list of concerts sorted in chronological order (by date from earliest to latest). ... ok\ntest_manual_3 (test.ItineraryBuilderTest)\nAn artist has at most one concert in the itinerary. If an artist has more than one concert in the list, the itinerary should only include the one with the earliest start date. ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n"
+      }
+    },
+    {
+      "timestamp": "2025-04-18T17:36:22.079997",
+      "results": {
+        "total": 6,
+        "failures": 1,
+        "errors": 0,
+        "skipped": 0,
+        "success": false,
+        "details": "test_ai_assisted_concert_details (test.ItineraryBuilderTest)\nThe itinerary should return a list of concerts that state the artist, date, and location of each concert. ... ok\ntest_ai_assisted_no_two_concerts_same_day (test.ItineraryBuilderTest)\nNo two concerts may take place on the same day. If two different artists (or the same artist) have a concert on the same day, the itinerary only includes the concert closest to the last one. ... ok\ntest_ai_assisted_single_concert_priority (test.ItineraryBuilderTest)\nIf an artist only has one concert, it should be prioritized over artists with multiple concerts, regardless if the location is closer or not. ... FAIL\ntest_manual_1 (test.ItineraryBuilderTest)\nSome artists may have no concerts on the list. In that case, that should be indicated in the itinerary. ... ok\ntest_manual_2 (test.ItineraryBuilderTest)\nThe itinerary should return a list of concerts sorted in chronological order (by date from earliest to latest). ... ok\ntest_manual_3 (test.ItineraryBuilderTest)\nAn artist has at most one concert in the itinerary. If an artist has more than one concert in the list, the itinerary should only include the one with the earliest start date. ... ok\n\n======================================================================\nFAIL: test_ai_assisted_single_concert_priority (test.ItineraryBuilderTest)\nIf an artist only has one concert, it should be prioritized over artists with multiple concerts, regardless if the location is closer or not.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\jespe\\Source\\TDD-Prompt-Engineering\\test.py\", line 94, in test_ai_assisted_single_concert_priority\n    self.assertIn(artist, [concert.artist for concert in itinerary], f\"Artist {artist} with a single concert is not prioritized in the itinerary.\")\nAssertionError: 'Coldplay' not found in ['Taylor Swift', 'Ed Sheeran', 'Adele', 'Beyonc\u00e9', 'The Weeknd', 'Justin Bieber', 'Billie Eilish', 'Kendrick Lamar', 'Metallica', 'The Rolling Stones', 'Imagine Dragons', 'Bruno Mars', 'Post Malone', 'Ariana Grande', 'Lady Gaga', 'Drake', 'Rihanna', 'Foo Fighters'] : Artist Coldplay with a single concert is not prioritized in the itinerary.\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n"
+      }
+    },
+    {
+      "timestamp": "2025-04-18T17:57:37.426061",
+      "results": {
+        "total": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "success": true,
+        "details": "test_ai_assisted_concert_details (test.ItineraryBuilderTest)\nThe itinerary should return a list of concerts that state the artist, date, and location of each concert. ... ok\ntest_ai_assisted_no_two_concerts_same_day (test.ItineraryBuilderTest)\nNo two concerts may take place on the same day. If two different artists (or the same artist) have a concert on the same day, the itinerary only includes the concert closest to the last one. ... ok\ntest_ai_assisted_single_concert_priority (test.ItineraryBuilderTest)\nIf a single-concert artist is not included in the itinerary, ... ok\ntest_manual_1 (test.ItineraryBuilderTest)\nSome artists may have no concerts on the list. In that case, that should be indicated in the itinerary. ... ok\ntest_manual_2 (test.ItineraryBuilderTest)\nThe itinerary should return a list of concerts sorted in chronological order (by date from earliest to latest). ... ok\ntest_manual_3 (test.ItineraryBuilderTest)\nAn artist has at most one concert in the itinerary. If an artist has more than one concert in the list, the itinerary should only include the one with the earliest start date. ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK\n"
+      }
+    },
+    {
+      "timestamp": "2025-04-18T18:01:21.794904",
+      "results": {
+        "total": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "success": true,
+        "details": "test_ai_assisted_concert_details (test.ItineraryBuilderTest)\nThe itinerary should return a list of concerts that state the artist, date, and location of each concert. ... ok\ntest_ai_assisted_no_two_concerts_same_day (test.ItineraryBuilderTest)\nNo two concerts may take place on the same day. If two different artists (or the same artist) have a concert on the same day, the itinerary only includes the concert closest to the last one. ... ok\ntest_ai_assisted_single_concert_priority (test.ItineraryBuilderTest)\nIf a single-concert artist is not included in the itinerary, ... ok\ntest_manual_1 (test.ItineraryBuilderTest)\nSome artists may have no concerts on the list. In that case, that should be indicated in the itinerary. ... ok\ntest_manual_2 (test.ItineraryBuilderTest)\nThe itinerary should return a list of concerts sorted in chronological order (by date from earliest to latest). ... ok\ntest_manual_3 (test.ItineraryBuilderTest)\nAn artist has at most one concert in the itinerary. If an artist has more than one concert in the list, the itinerary should only include the one with the earliest start date. ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n"
+      }
+    }
+  ],
+  "file_changes": [],
+  "coverage_reports": [
+    {
+      "timestamp": "2025-04-18T16:31:50.796234",
+      "total_coverage": 33.333333333333336,
+      "file_coverage": {
+        "main.py": {
+          "lines_total": 14,
+          "lines_covered": 13,
+          "lines_missed": 11,
+          "percentage": 92.85714285714286
+        },
+        "test.py": {
+          "lines_total": 34,
+          "lines_covered": 21,
+          "lines_missed": 29,
+          "percentage": 61.76470588235294
+        }
+      }
+    },
+    {
+      "timestamp": "2025-04-18T17:21:49.627194",
+      "total_coverage": 54.23728813559322,
+      "file_coverage": {
+        "test.py": {
+          "lines_total": 34,
+          "lines_covered": 11,
+          "lines_missed": 27,
+          "percentage": 32.35294117647059
+        },
+        "main.py": {
+          "lines_total": 21,
+          "lines_covered": 13,
+          "lines_missed": 11,
+          "percentage": 61.904761904761905
+        }
+      }
+    },
+    {
+      "timestamp": "2025-04-18T17:36:22.118825",
+      "total_coverage": 60.526315789473685,
+      "file_coverage": {
+        "test.py": {
+          "lines_total": 55,
+          "lines_covered": 18,
+          "lines_missed": 46,
+          "percentage": 32.72727272727273
+        },
+        "main.py": {
+          "lines_total": 17,
+          "lines_covered": 9,
+          "lines_missed": 4,
+          "percentage": 52.94117647058823
+        }
+      }
+    },
+    {
+      "timestamp": "2025-04-18T17:57:37.438185",
+      "total_coverage": 66.4,
+      "file_coverage": {
+        "main.py": {
+          "lines_total": 56,
+          "lines_covered": 20,
+          "lines_missed": 15,
+          "percentage": 35.714285714285715
+        },
+        "test.py": {
+          "lines_total": 65,
+          "lines_covered": 19,
+          "lines_missed": 48,
+          "percentage": 29.23076923076923
+        }
+      }
+    },
+    {
+      "timestamp": "2025-04-18T18:01:21.805983",
+      "total_coverage": 67.54385964912281,
+      "file_coverage": {
+        "main.py": {
+          "lines_total": 45,
+          "lines_covered": 15,
+          "lines_missed": 15,
+          "percentage": 33.333333333333336
+        },
+        "test.py": {
+          "lines_total": 65,
+          "lines_covered": 19,
+          "lines_missed": 48,
+          "percentage": 29.23076923076923
+        }
+      }
+    }
+  ],
+  "task_times": [
+    {
+      "timestamp": "2025-04-18T16:32:39.373139",
+      "task": "Manual test writing (RED phase)",
+      "duration": 13.0
+    },
+    {
+      "timestamp": "2025-04-18T17:22:36.009355",
+      "task": "Manual implementation (GREEN phase)",
+      "duration": 12.0
+    },
+    {
+      "timestamp": "2025-04-18T17:28:18.931195",
+      "task": "Manual refactoring (REFACTOR phase)",
+      "duration": 5.0
+    },
+    {
+      "timestamp": "2025-04-18T17:36:59.310160",
+      "task": "AI-assisted test writing (RED phase)",
+      "duration": 4.0
+    },
+    {
+      "timestamp": "2025-04-18T17:57:49.098588",
+      "task": "AI-assisted implementation (GREEN phase)",
+      "duration": 20.0
+    },
+    {
+      "timestamp": "2025-04-18T18:01:46.741143",
+      "task": "AI-assisted refactoring (REFACTOR phase)",
+      "duration": 3.0
+    }
+  ],
+  "constraint_assignments": {
+    "manual": [
+      3,
+      1,
+      2
+    ],
+    "ai_assisted": [
+      4,
+      0,
+      5
+    ],
+    "assigned_at": "2025-04-18T16:19:05"
+  }
+}
