@@ -4,8 +4,6 @@ Concert Itinerary Builder
 This module provides functionality to build an itinerary of upcoming concerts.
 """
 
-import math
-
 class Concert:
     """
     Represents a concert event.
@@ -31,10 +29,11 @@ class ItineraryBuilder:
     """
     
     def build_itinerary(self, concerts):
-        return []
-
-
-if __name__ == "__main__":
-    from concerts_data import get_all_concerts
-    
-    all_concerts = get_all_concerts()
+        itinerary = []
+        for concert in sorted(concerts, key= lambda concert: concert.date):
+            if concert.artist in [_.artist for _ in itinerary]:
+                continue
+            if concert.date in [_.date for _ in itinerary]:
+                continue
+            itinerary.append(concert)
+        return itinerary
