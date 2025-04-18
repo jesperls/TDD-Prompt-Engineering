@@ -61,6 +61,60 @@ class ItineraryBuilderTest(unittest.TestCase):
     # Participants will implement their AI-assisted test cases here.
     # Please name your test in a way which indicates that these are AI-assisted test cases.
 
+    def test_ai_assisted_no_two_concerts_same_day(self):
+        """No two concerts may take place on the same day. If two different artists (or the same artist) have a concert on the same day, the itinerary only includes the concert closest to the last one."""
+        itinerary = self.builder.build_itinerary(self.all_concerts)
+        itinerary_dates = {}
+
+        for concert in itinerary:
+            if concert.date in itinerary_dates:
+                last_concert = itinerary_dates[concert.date]
+                distance_last = ((last_concert.latitude - concert.latitude)**2 + (last_concert.longitude - concert.longitude)**2)**0.5
+                distance_current = ((last_concert.latitude - concert.latitude)**2 + (last_concert.longitude - concert.longitude)**2)**0.5
+                self.assertLessEqual(distance_current, distance_last, "Concert on the same day is not the closest to the last one.")
+            else:
+                itinerary_dates[concert.date] = concert
+
+    def test_ai_assisted_concert_details(self):
+        """The itinerary should return a list of concerts that state the artist, date, and location of each concert."""
+        itinerary = self.builder.build_itinerary(self.all_concerts)
+
+        for concert in itinerary:
+            self.assertIsNotNone(concert.artist, "Concert artist is missing.")
+            self.assertIsNotNone(concert.date, "Concert date is missing.")
+            self.assertIsNotNone(concert.location, "Concert location is missing.")
+
+    def test_ai_assisted_single_concert_priority(self):
+        """
+        If a single-concert artist is not included in the itinerary,
+        it must be because another single-concert artist's concert occurred on the same date
+        and was closer to the previous concert.
+        """
+        itinerary = self.builder.build_itinerary(self.all_concerts)
+        itinerary_artists = [concert.artist for concert in itinerary]
+        itinerary_by_date = {concert.date: concert for concert in itinerary}
+        
+        # Identify single-concert artists and their concert
+        artist_counts = {}
+        for concert in self.all_concerts:
+            artist_counts[concert.artist] = artist_counts.get(concert.artist, 0) + 1
+
+        single_concerts = [concert for concert in self.all_concerts if artist_counts[concert.artist] == 1]
+
+        for concert in single_concerts:
+            if concert.artist in itinerary_artists:
+                continue  # good
+
+            # Check if the concert date is taken by another single-concert artist
+            if concert.date in itinerary_by_date:
+                occupying_concert = itinerary_by_date[concert.date]
+                # Both must be single-concert artists if one got excluded
+                self.assertTrue(
+                    artist_counts[occupying_concert.artist] == 1,
+                    f"Artist {concert.artist} was excluded in favor of a multi-concert artist on {concert.date}."
+                )
+            else:
+                self.fail(f"Artist {concert.artist} with one concert was excluded for no reason.")
 
 if __name__ == "__main__":
     unittest.main()
